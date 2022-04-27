@@ -31,20 +31,17 @@ function App() {
     if(Object.keys(user).length !== 0){//*condicion para resolver la request inicial
       //?agregar nuevo usuario
       apiPost(user).then((res) =>{
-        console.log(res)
         setNewU({})
       })
     }
     //!Eliminar un usuario
     if(deleteUser !== 0){ //* condicion para resolver la request inicial
       apiDel(deleteUser).then((res) =>{
-        console.log(res)
         setDeleteUser(0)
         })
     }
     if(idUd !== 0){//* generdador de acrtualizacones 
       apiUpdate(idUd, finalUpdateObj).then((res) =>{
-        console.log(res)
         setIdUpdate(0)
         setfinalUpdateObj({})
       })
