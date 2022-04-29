@@ -15,7 +15,6 @@ const UsersContainer = ({useresArr, del, update, finalUpdate}) =>{
                 password: e.password
             }
         }
-        console.log(obj)
         finalUpdate(obj) //! objeto para actualizar
         update(true)
         

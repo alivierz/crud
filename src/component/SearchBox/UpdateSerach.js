@@ -1,13 +1,22 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import './form.css'
 
 const FormUpdate = ({cancel, update, download}) => {
 
-  const defaultValuez = {first_name: update.objU.first_name, last_name:  update.objU.last_name, email:  update.objU.email, password: update.objU.password, birthday: update.objU.birthday}
+  
   //* useForm 
-  const { register, handleSubmit } = useForm({
-      defaultValues: defaultValuez
-  });
+  const { register, handleSubmit, reset } = useForm();
+
+  useEffect(() =>{
+    if(update){
+      const defaultValuez = {first_name: update.objU.first_name, last_name:  update.objU.last_name, email:  update.objU.email, password: update.objU.password, birthday: update.objU.birthday}
+      reset(defaultValuez)
+    }
+
+  }, [reset, update])
+
+
   const onSubmit = (data) => {
     download(data , update.id)
     cancel(false)
